@@ -1,0 +1,15 @@
+/API/bin
+/API/obj
+/Common.Data/bin
+/Common.Data/obj
+*.csproj
+*.csproj.DotSettings
+*.csproj.user
+/.vs/AtmosphericSounding/v15/*
+/.vs/AtmosphericSounding/DesignTimeBuild/*
+*.DotSettings
+*.DotSettings.user
+*/bin
+*/obj
+packages
+/.vs/AtmosphericSounding/v16

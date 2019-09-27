@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="WpfUI.Views.Controls.PlotDataDockWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+             xmlns:viewModels="clr-namespace:WpfUI.ViewModels"
+             xmlns:common="clr-namespace:WpfUI.Common"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:PlotDockWindow}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0">
+            <!--<Button Content="Connect" />-->
+            <Button ToolTip="Редактировать график" Command="{Binding Path=Edit}">
+                <!--<Image Source="Images/BuildGraph.png" />-->
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../../Images/BuildGraph.png" Stretch="Uniform" />
+                    <Label Padding="5">Настроить график</Label>
+                </StackPanel>
+            </Button>
+        </ToolBar>
+
+        <!--<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            
+        </StackPanel>-->
+
+        <xcad:DockingManager Grid.Row="1" AllowMixedOrientation="True"
+                         BorderBrush="Black"
+                         BorderThickness="1">
+            <xcad:LayoutRoot>
+                <xcad:LayoutPanel Orientation="Horizontal">
+
+                    <xcad:LayoutAnchorablePaneGroup>
+                        <xcad:LayoutAnchorablePane DockWidth="1*">
+                            <xcad:LayoutAnchorable Title="Данныe" ContentId="2">
+                                <DataGrid 
+                                AutoGenerateColumns="False" 
+                                ItemsSource="{Binding Path=Plot.Data.Source}" 
+                                AlternationCount="1" 
+                                EnableRowVirtualization="True"
+                                EnableColumnVirtualization="True"
+                                VirtualizingPanel.VirtualizationMode="Recycling"
+                                AlternatingRowBackground="#FFD6F5F4" 
+                                SelectionUnit="CellOrRowHeader" 
+                                CanUserSortColumns="False" 
+                                common:DynamicColumnsBehavior.BindableColumns="{Binding Plot.Columns}">
+
+                                </DataGrid>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorablePane>
+                        <xcad:LayoutAnchorablePane DockWidth="9*">
+                            <xcad:LayoutAnchorable 
+                            CanAutoHide="False" 
+                            CanClose="False" 
+                            CanFloat="False" 
+                            CanHide="False" 
+                            ContentId="1"
+                            CanDockAsTabbedDocument="False" >
+                                <ContentPresenter Content="{Binding Plot, Mode=TwoWay}"/>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorablePane>
+                        <xcad:LayoutAnchorablePane DockWidth="200">
+                            <xcad:LayoutAnchorable ContentId="properties" Title="Properties" CanHide="False" CanClose="False"
+                                                   AutoHideWidth="240">
+                                <xctk:PropertyGrid NameColumnWidth="110"
+                                                   SelectedObject="{Binding Path=Plot.PlotSettings, Mode=TwoWay}"/>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorablePane>
+                    </xcad:LayoutAnchorablePaneGroup>
+                </xcad:LayoutPanel>
+            </xcad:LayoutRoot>
+            <!--<ContentPresenter Content="{Binding Plot}"/>-->
+        </xcad:DockingManager>
+    </Grid>
+    
+
+
+</UserControl>
