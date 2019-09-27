@@ -1,0 +1,42 @@
+﻿<local:UserControlGeneric
+    x:TypeArguments="viewModels:SeriesSetting" 
+    x:Class="WpfUI.Views.Controls.SeriesSetting"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="clr-namespace:WpfUI.Common"
+    mc:Ignorable="d"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WpfUI.Views.Controls"
+    xmlns:viewModels="clr-namespace:WpfUI.ViewModels"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    x:Name="EditPlotWindow" 
+    d:DataContext="{d:DesignInstance viewModels:SeriesSetting}">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto" MinWidth="50"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Название:" Margin="0,15,0,0"></Label>
+        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="30" Margin="0,5" Text="{Binding Path=LegendTitle, Mode=TwoWay}"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Цвет линии:" Margin="0,15,0,0"></Label>
+        <xctk:ColorPicker Grid.Row="2" Grid.Column="1" SelectedColor="{Binding Path=LineColor}" Width="50" Margin="5,15,0,0"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Цвет маркера:" Margin="0,15,0,0"></Label>
+        <xctk:ColorPicker Grid.Row="3" Grid.Column="1" SelectedColor="{Binding Path=MarkerColor}" Width="50" Margin="5,15,0,0"/>
+        
+        <Label Grid.Row="4" Grid.Column="0" Content="Шрифт заголовка:" Margin="0,15,0,0"/>
+        <Button Grid.Row="4" Grid.Column="1" ToolTip="Настроить" Margin="5,15,0,0" Width="30" HorizontalAlignment="Left"
+            Command="{Binding Path=LegendFontOpen}" >
+            <Image Source="../../Images/font-21.png" Stretch="Uniform" Width="25" />
+        </Button>
+    </Grid>
+</local:UserControlGeneric> 

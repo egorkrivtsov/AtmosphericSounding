@@ -1,0 +1,40 @@
+﻿<Window 
+        x:Class="WpfUI.Views.DialogCommon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:views="clr-namespace:WpfUI.Views"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
+        xmlns:viewModels="clr-namespace:WpfUI.ViewModels"
+        mc:Ignorable="d"
+        Height="Auto" 
+        Width="Auto"
+        Topmost="True"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False" 
+        SizeToContent="WidthAndHeight">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ContentPresenter Grid.Row="0" Content="{Binding}"></ContentPresenter>
+        <WrapPanel Grid.Row="1" Margin="0,15,0,0" FlowDirection="RightToLeft">
+            <Button Width="100" ToolTip="Сохранить" Margin="0,0,15,0" Click="SaveClose">
+                <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                    <Image Source="../Images/Ok.png" Stretch="Uniform" Width="25" />
+                    <Label Padding="5">Сохранить</Label>
+                </StackPanel>
+            </Button>
+            <Button Width="100" ToolTip="Отменить" IsCancel="True">
+                <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                    <Image Source="../Images/Cancel.png" Stretch="Uniform" Width="25" />
+                    <Label Padding="5">Отменить</Label>
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+    </Grid>
+</Window>
