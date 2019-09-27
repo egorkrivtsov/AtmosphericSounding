@@ -2,7 +2,6 @@
 /API/obj
 /Common.Data/bin
 /Common.Data/obj
-*.csproj
 *.csproj.DotSettings
 *.csproj.user
 /.vs/AtmosphericSounding/v15/*
