@@ -1,4 +1,4 @@
-export interface GroundStation {
+export interface IGroundStation {
     index: number;
     longitude: number;
     latitude: number;

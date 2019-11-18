@@ -7,7 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* material module */
 import { MaterialModule } from './material.module';
 
-import { DataTableViewComponent } from '../components/data.table.view';
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+/* components */
+import { DataTableViewComponent } from '../components/data-table-view/data-table-view';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { DataTableViewComponent } from '../components/data.table.view';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    VirtualScrollerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

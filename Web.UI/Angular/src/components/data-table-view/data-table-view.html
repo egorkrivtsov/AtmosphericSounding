@@ -1,0 +1,21 @@
+
+<virtual-scroller #scroll [items]="dataSource" class="virtual-scroller">
+  <table class="mat-elevation-z8 mat-table">
+    <thead role="rowgroup" #header>
+      <tr class="mat-header-row">
+          <th class="mat-header-cell cdk-column-position mat-column-position">Position</th>
+          <th  class="mat-header-cell cdk-column-position mat-column-position">Name</th>
+          <th  class="mat-header-cell cdk-column-position mat-column-position">Weight</th>
+          <th  class="mat-header-cell cdk-column-position mat-column-position">Symbol</th>
+        </tr>
+    </thead>
+    <tbody role="rowgroup" #container>
+      <tr *ngFor="let item of scroll.viewPortItems" class="mat-row">
+        <td class="mat-cell">{{item.position}}</td>
+        <td class="mat-cell">{{item.name}}</td>
+        <td class="mat-cell">{{item.weight}}</td>
+        <td class="mat-cell">{{item.symbol}}</td>
+      </tr>
+    </tbody>
+  </table>
+</virtual-scroller>

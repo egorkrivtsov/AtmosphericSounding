@@ -1,0 +1,36 @@
+.virtual-scroller {
+
+  // height: 600px;
+  height: calc(100vh - 250px);
+
+  table {
+    border-spacing: 0;
+    width:100%;
+
+    th {
+        text-align: left;
+    }
+
+    .mat-header-row {
+      height: 56px;
+    }
+
+    .mat-row {
+      height: 48px;
+    }
+
+    td.mat-cell:first-of-type, 
+    td.mat-footer-cell:first-of-type, 
+    th.mat-header-cell:first-of-type {
+      padding-left: 24px;
+    }
+
+    td.mat-cell, 
+    td.mat-footer-cell, 
+    th.mat-header-cell {
+      padding: 0;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+  }
+}

@@ -88,13 +88,72 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<RawPacket>> Get()
         {
-            return new string[] { "value1", "value2" };
-        }
-    }
+            GroundStation groundStationModel = null;
+            Mesh tuMesh = null;
+            Mesh crdMesh = null;
+            Mesh mergedMesh = null;
 
-    public class TestModel {
-        public string Id { get; set; }
+            var list = new List<RawPacket>();
+            foreach (IFormFile file in Request.Form.Files.Where(f => f.Length > 0).ToList())
+            {
+                var name = file.Name;
+                using (var reader = file.OpenReadStream())
+                {
+                    switch (name)
+                    {
+
+                        case "info":
+                            groundStationModel = new TextFileReader<GroundStation>(new GroundStationFileMapping(), ":").Read(reader);
+                            break;
+                        case "tu":
+                            tuMesh = new Mesh(new TextFileReader<IEnumerable<double[]>>(new ListValuesMapping<double>())
+                                .Read(reader));
+                            break;
+                        case "crd":
+                            crdMesh = new Mesh(new TextFileReader<IEnumerable<double[]>>(new ListValuesMapping<double>())
+                                .Read(reader));
+                            break;
+                    }
+                }
+
+            }
+
+            if (crdMesh != null && tuMesh != null)
+                mergedMesh = crdMesh.MergeOnUniform(tuMesh, 10);
+
+            if (groundStationModel != null && mergedMesh != null)
+            {
+                int index = 0;
+                foreach (var data in mergedMesh.Data)
+                {
+                    GeoCoordinates cordinates = null;
+                    if (index == 0)
+                    {
+                        cordinates = new GeoCoordinates(groundStationModel.Latitude
+                            , groundStationModel.Longitude
+                            , groundStationModel.Height);
+                    }
+                    else
+                    {
+                        cordinates =
+                            new SphericalCoordinates(data[1], data[2], data[3]).ConvertTo(groundStationModel);
+                    }
+
+                    list.Add(new RawPacket()
+                    {
+                        DateTimeUtc = groundStationModel.Time.AddSeconds(data[0]),
+                        Coordinates = cordinates,
+                        Temperature = data[4],
+                        Humidity = data[5],
+                        Id = index
+                    });
+                    index++;
+                }
+            }
+
+            return Ok(list);
+        }
     }
 }
