@@ -1,1 +1,1 @@
-export { addTab } from './tabs';
+export { addTab, removeTab } from './tabs';

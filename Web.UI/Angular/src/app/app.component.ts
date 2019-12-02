@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IAppState, ITabsState } from '@app/store/state';
+import { IAppState } from '@app/store/state';
 import { getTabs } from '@app/store/selectors';
 import { Store, select } from '@ngrx/store';
 import { ITab } from '@app/models';
+import { removeTab } from '@app/store/actions';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tabs$.subscribe((items: ITab[]) => console.log(items));
   }
+
+  public remove = (id: number | string) => this.store.dispatch(removeTab({ id }));
 }

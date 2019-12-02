@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
-import { IApplicationState } from '@app/store/state';
+import { IAppState } from '@app/store/state';
 import { addTab } from '@app/store/actions';
 import { ITab } from '@app/models';
 
@@ -11,7 +11,7 @@ import { ITab } from '@app/models';
     styleUrls: ['./toolbar.less'],
 })
 export class ToolbarComponent {
-  constructor(private store: Store<IApplicationState>) {
+  constructor(private store: Store<IAppState>) {
   }
 
   public createNewChart = () => {
