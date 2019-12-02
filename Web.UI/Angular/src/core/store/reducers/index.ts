@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { IAppState } from '@app/store/state';
+import { IAppState } from 'core/store/state/application';
 import { TabReducer } from './tabs';
 
 /*

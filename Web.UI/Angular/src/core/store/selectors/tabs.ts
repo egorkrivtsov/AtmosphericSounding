@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { IAppState, ITabsState } from '@app/store/state';
+import { IAppState, ITabsState } from 'core/store/state/application';
 import { ITab } from '@app/models';
 
 export const getTabsState = (store: IAppState) => store.tabsState;

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { IAppState } from '@app/store/state';
+import { IAppState } from 'core/store/state/application';
 import { addTab } from '@app/store/actions';
 import { ITab } from '@app/models';
 

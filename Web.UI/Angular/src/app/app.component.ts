@@ -12,14 +12,13 @@ import { removeTab } from '@app/store/actions';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
-  tabs$: Observable<ITab[]>;
+  public tabs$: Observable<ITab[]>;
 
-  constructor(private store: Store<IAppState>) {
+  public constructor(private store: Store<IAppState>) {
     this.tabs$ = this.store.pipe(select(getTabs));
   }
 
-  ngOnInit() {
-  }
+  public ngOnInit() {  }
 
   public remove = (id: number | string) => this.store.dispatch(removeTab({ id }));
 }
