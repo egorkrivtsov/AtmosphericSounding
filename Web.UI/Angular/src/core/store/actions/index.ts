@@ -1,0 +1,1 @@
+export { addTab } from './tabs';

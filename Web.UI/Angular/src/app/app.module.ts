@@ -10,18 +10,26 @@ import { MaterialModule } from './material.module';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 /* components */
 import { DataTableViewComponent } from '../components/data-table-view/data-table-view';
+import { ToolbarComponent } from '../components/toolbar/toolbar';
+/* Redux */
+import { StoreModule } from '@ngrx/store';
+import { reducers  } from '@app/store/reducers';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataTableViewComponent
+    DataTableViewComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    VirtualScrollerModule
+    VirtualScrollerModule,
+    /* StoreModule.forFeature(FeaturesKeys.Application, ApplicationReducer),
+    StoreModule.forRoot([]), */
+    StoreModule.forRoot(reducers),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,6 +22,11 @@
     "paths":{
       // "@app/*": ["app/modules/*"],
       "@app/models": ["core/models/index"],
+      "@app/store/actions": ["core/store/actions/index"],
+      "@app/store/reducers": ["core/store/reducers/index"],
+      "@app/store/selectors": ["core/store/selectors/index"],
+      "@app/store/state": ["core/store/state/application.state"],
+      //"@app/models": ["core/store/index"],
       // "@app/pipes": ["app/modules/pipes/index"],
       // "@app/macro-components/*": ["app/modules/components/macro/*"],
       // "@app/micro-components/*": ["app/modules/components/micro/*"],
