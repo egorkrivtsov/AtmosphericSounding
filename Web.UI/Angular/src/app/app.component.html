@@ -8,7 +8,7 @@
 
 <mat-tab-group>
   <mat-tab label="Raw Data"> 
-    <app-toolbar>My App</app-toolbar> 
+    <app-main-toolbar></app-main-toolbar> 
     <app-data-table-view></app-data-table-view>
   </mat-tab>
   <mat-tab label="Third"> Content 3 </mat-tab>
@@ -20,7 +20,9 @@
           <mat-icon>delete_outline</mat-icon>
         </button>
     </ng-template>
-    Content
+    <ng-template matTabContent>
+      <app-ng2-chart></app-ng2-chart>
+    </ng-template>
   </mat-tab>
 </mat-tab-group>
 <router-outlet></router-outlet>

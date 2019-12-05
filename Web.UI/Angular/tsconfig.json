@@ -25,6 +25,7 @@
       "@app/store/actions": ["core/store/actions/index"],
       "@app/store/reducers": ["core/store/reducers/index"],
       "@app/store/selectors": ["core/store/selectors/index"],
+      "@app/store/effects": ["core/store/effects/index"],
       "@app/store/state": ["core/store/state/index"],
       //"@app/models": ["core/store/index"],
       // "@app/pipes": ["app/modules/pipes/index"],

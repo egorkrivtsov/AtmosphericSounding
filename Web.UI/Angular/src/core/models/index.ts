@@ -1,4 +1,4 @@
-export { IGeoCoordinates as GeoCoordinates, ISphericCoordinates as SphericCoordinates } from './coordinates';
-export { IGroundStation as GroundStation } from './ground-station';
-export { IRawData } from './raw-data';
-export { ITab, TabType } from './tab';
+export { IGeoCoordinates as GeoCoordinates, ISphericCoordinates as SphericCoordinates } from './coordinates.model';
+export { IGroundStation as GroundStation } from './ground-station.model';
+export { IUnprocessedData } from '././unprocessed-data.model';
+export { ITab, TabType } from './tab.model';

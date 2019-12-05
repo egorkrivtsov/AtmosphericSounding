@@ -1,12 +1,10 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { IAppState } from 'core/store/state/application';
-import { TabReducer } from './tabs';
+import { IAppState } from 'core/store/state/app.state';
+import { TabReducer } from './tab.reducers';
+import { DataSourceReducer } from './data-source.reducers';
 
-/*
-export enum FeaturesKeys {
-    Application = 'Application',
-}*/
 
 export const reducers: ActionReducerMap<IAppState> = {
-    tabsState: TabReducer
+    tabs: TabReducer,
+    dataSource: DataSourceReducer,
   };

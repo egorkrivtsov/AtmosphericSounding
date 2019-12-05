@@ -1,5 +1,5 @@
 
-<virtual-scroller #scroll [items]="dataSource" class="virtual-scroller">
+<virtual-scroller #scroll [items]="data$ | async" class="virtual-scroller" *ngIf="!(isLoading$ | async) && (data$ | async).length">
   <table class="mat-elevation-z8 mat-table">
     <thead role="rowgroup" #header>
       <tr class="mat-header-row">

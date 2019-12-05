@@ -9,3 +9,12 @@ export enum TabType {
     ProcessedData,
     Chart
 }
+
+export class DataTab implements ITab {
+    public id: string | number;
+
+    public name: string;
+
+    public type = TabType.RawData;
+
+}

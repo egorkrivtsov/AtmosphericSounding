@@ -1,4 +1,4 @@
-export interface IRawData {
+export interface IUnprocessedData {
     id: number | string;
     dateTime: Date;
     temperature: number;
