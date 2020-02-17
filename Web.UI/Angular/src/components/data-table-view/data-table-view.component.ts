@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { getData, isLoading } from '@app/store/selectors';
 import { Observable } from 'rxjs';
 import { IUnprocessedData } from '@app/models';
-import { IAppState } from 'core/store/state/app.state';
+import { IAppState } from '@app/store/state';
 
 @Component({
     selector: 'app-data-table-view',

@@ -2,8 +2,8 @@ import { createAction, props } from '@ngrx/store';
 import { IUnprocessedData } from '@app/models';
 
 export enum DataSourceActionTypes {
-    Load = '[DataSource Action] Load Unprocess',
-    LoadSuccess = '[DataSource Action] Load Unprocess Success',
+    Load = '[DataSource Action] Load Unprocessed',
+    LoadSuccess = '[DataSource Action] Load Unprocessed Success',
 }
 
 export const load = createAction(DataSourceActionTypes.Load);

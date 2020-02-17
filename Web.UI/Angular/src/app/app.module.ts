@@ -13,6 +13,7 @@ import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 /* components */
 import { DataTableViewComponent } from '../components/data-table-view/data-table-view.component';
+import { DataChartViewComponent } from '../components/data-chart-view/data-chart-view.component';
 import { MainToolbarComponent } from '../components/toolbar/main-toolbar.component';
 // charts
 import { LineChartComponent } from '../components/charts/d3js/line-chart.component';
@@ -33,6 +34,7 @@ import { effects  } from '@app/store/effects';
   declarations: [
     AppComponent,
     DataTableViewComponent,
+    DataChartViewComponent,
     LineChartComponent,
     Ng2ChartComponent,
     MainToolbarComponent,

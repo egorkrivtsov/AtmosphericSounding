@@ -36,8 +36,8 @@ export class Ng2ChartComponent implements OnInit {
               zoom: {
                 enabled: true,
                 mode: 'xy',
-                //drag: true,
-                 //speed: 10,
+                // drag: true,
+                 // speed: 10,
               }
             }
           },
@@ -70,6 +70,7 @@ export class Ng2ChartComponent implements OnInit {
         },
       };
 
+
       public lineChartColors: Color[] = [
         {
           borderColor: 'black',
@@ -84,5 +85,7 @@ export class Ng2ChartComponent implements OnInit {
 
       ngOnInit() {
       }
+
+
 
 }

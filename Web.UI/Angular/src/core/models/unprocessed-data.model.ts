@@ -3,7 +3,8 @@ export interface IUnprocessedData {
     dateTime: Date;
     temperature: number;
     humidity: number;
-
+    weight: number;
+    position: number;
 }
 
 

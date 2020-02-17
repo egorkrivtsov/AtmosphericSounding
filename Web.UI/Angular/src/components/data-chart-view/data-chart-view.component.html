@@ -1,0 +1,11 @@
+<div style="display: block;" *ngIf="!(isLoading$ | async) && (data$ | async).length">
+  <canvas baseChart 
+    [datasets]="y$ | async"
+    [labels]="x$ | async"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+    [plugins]="lineChartPlugins">
+  </canvas>
+</div>
