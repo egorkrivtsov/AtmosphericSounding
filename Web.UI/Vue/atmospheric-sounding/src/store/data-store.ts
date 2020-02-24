@@ -12,7 +12,7 @@ export default class DataModule extends VuexModule {
 
     public columns: string[] = []
 
-    public allRows: any[] = [];
+    public rowsBuffer: any[] = [];
 
     public rows: any[] = [];
 
@@ -23,7 +23,7 @@ export default class DataModule extends VuexModule {
     public addRow (row: any[]): void { this.rows.push(row) }
 
     @Mutation
-    public setAllRows (rows: any[]): void { this.allRows = rows }
+    public setRowsBuffer (rows: any[]): void { this.rowsBuffer = rows }
 
     @Mutation
     public clear (): void { this.rows = [] }
@@ -31,12 +31,12 @@ export default class DataModule extends VuexModule {
     @Action({ rawError: true })
     public async loadAll (): Promise<void> {
       this.context.commit(nameOfFunction(this, this.setColumns), getColumns())
-      this.context.commit(nameOfFunction(this, this.setAllRows), getData())
+      this.context.commit(nameOfFunction(this, this.setRowsBuffer), getData())
       const timeInterval = 100
 
       const emitValue = () => {
         const i = this.rows.length
-        this.context.commit(nameOfFunction(this, this.addRow), this.allRows[i])
+        this.context.commit(nameOfFunction(this, this.addRow), this.rowsBuffer[i])
 
         if (i < 100) {
           setTimeout(() => emitValue(), timeInterval)

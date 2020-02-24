@@ -1,20 +1,19 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { VNode } from 'vue/types/umd';
-import { QTabs, QTab, QTabPanels, QTabPanel } from 'quasar';
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { VNode } from 'vue/types/umd'
+import { QTabs, QTab, QTabPanels, QTabPanel } from 'quasar'
 
-
-const DataTable  = Vue.component('DataTable', () => import('@/components/data-table.vue')
+const DataTable = Vue.component('DataTable', () => import('@/components/data-table.vue')
   .then((app) => app.default)
-);
+)
 
 @Component({
-  name: 'Tabs', 
+  name: 'Tabs',
   components: {
     QTabs,
     QTab,
     QTabPanels,
-    QTabPanel,
+    QTabPanel
     // DataTable // : () => import('@/components/data-table.vue'),
   }
 })
@@ -39,10 +38,10 @@ export default class extends Vue {
           </q-tab-panel>
 
           <q-tab-panel name="chart">
-            
+
           </q-tab-panel>
         </q-tab-panels>
       </div>
-    );
+    )
   }
 }

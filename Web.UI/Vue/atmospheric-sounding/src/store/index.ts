@@ -18,5 +18,6 @@ const store = new Vuex.Store({
 })
 
 export const dataStore = getModule(DataModule, store)
+export { ModuleName as DataModuleName } from './data-store'
 
 export default store
