@@ -1,4 +1,6 @@
-﻿namespace Common.Extensions
+﻿using Common.Extensions.Converters;
+
+namespace Common.Extensions
 {
     public static class Verifications
     {
@@ -10,9 +12,8 @@
         }
 
         public static bool ValidateLrcFromHex(this string tooValidate, string toCompare)
-        {
-            return tooValidate.FromHex().ValidateLrc(toCompare.FromHex());
-        }
+            =>  tooValidate.FromHex().ValidateLrc(toCompare.FromHex());
+        
 
         public static bool ValidateCrc(this int valueToValidate, int valueToCompare)
         {

@@ -11,6 +11,11 @@ import Component from 'vue-class-component'
 import { QTable, QPageSticky, QBtn, QFab, TouchPan, QBtnGroup, QSlider } from 'quasar'
 import store, { dataStore, DataModuleName } from '@/store'
 import { nameOfFunction } from '@/common/helpers'
+/*
+ReChart
+AmChart
+ApexChart
+*/
 
 @Component({
   name: 'DataChart',

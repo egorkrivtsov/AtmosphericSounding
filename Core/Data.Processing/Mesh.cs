@@ -12,10 +12,7 @@ namespace Data.Processing
 
         public int XIndex { get; set; }
 
-        public IEnumerable<double> XValues
-        {
-            get { return Data.Select(d => d[XIndex]); }
-        }
+        public IEnumerable<double> XValues => Data.Select(d => d[XIndex]);
 
         public IInterpolation[] GetInterpolations()
         {

@@ -9,6 +9,7 @@ using Data.Reader.Interfaces;
 using Data.Reader.Mapping;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
+using GroundStation = Data.Reader.Mapping.GroundStation;
 
 
 namespace Tests
@@ -26,8 +27,8 @@ namespace Tests
             string crdPath = $@"{commonPath}.crd";
 
 
-            var groundStationModel = new TextFileReader<GroundStation>(new GroundStationFileMapping(), ":").Read(gsPath);
-            var txtDataReader = new TextFileReader<IEnumerable<double[]>>(new ListValuesMapping<double>());
+            var groundStationModel = new TextFileReader<Data.Models.GroundStation>(new GroundStation(), ":").Read(gsPath);
+            var txtDataReader = new TextFileReader<IEnumerable<double[]>>(new ListValues<double>());
             var mergedMesh = new Mesh(txtDataReader.Read(crdPath))
                 .MergeOnUniform(new Mesh(txtDataReader.Read(tuPath)), 10);
 

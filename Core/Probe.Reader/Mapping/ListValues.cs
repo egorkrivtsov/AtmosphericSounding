@@ -5,7 +5,7 @@ using Data.Reader.Interfaces;
 
 namespace Data.Reader.Mapping
 {
-    public class ListValuesMapping<TValue> : ITxtLinesMapping<IEnumerable<TValue[]>>
+    public class ListValues<TValue> : ITxtLinesMapping<IEnumerable<TValue[]>>
         where TValue : struct, IConvertible
     {
         public IEnumerable<TValue[]> Map(IEnumerable<string[]> source, IEnumerable<TValue[]> destination)

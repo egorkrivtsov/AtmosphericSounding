@@ -7,14 +7,8 @@ namespace Data.Processing.Helpers
 {
     public static class Temperature
     {
-        public static double ToKelvin(this double celsiusDegree)
-        {
-            return celsiusDegree + Constants.KelvinCoefficient;
-        }
+        public static double ToKelvin(this double celsiusDegree) => celsiusDegree + Constants.KelvinCoefficient;
 
-        public static double ToCelsiusDegree(this double kelvin)
-        {
-            return kelvin - Constants.KelvinCoefficient;
-        }
+        public static double ToCelsiusDegree(this double kelvin) => kelvin - Constants.KelvinCoefficient;
     }
 }

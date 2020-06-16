@@ -8,25 +8,25 @@ namespace Data.Reader
 {
     public class TextFileReader<TOut>
     {
-        public string ColumnSeparator { get; set; } = "\t";
+        private string ColumnSeparator { get; set; } = "\t";
 
-        public string LineSeparator { get; set; } = Environment.NewLine;
+        private string LineSeparator { get; set; } = Environment.NewLine;
 
-        public ITxtLinesMapping<TOut> Mapping { get; protected set; }
+        private ITxtLinesMapping<TOut> Mapper { get; set; }
 
-        public TextFileReader(ITxtLinesMapping<TOut> mapping)
+        public TextFileReader(ITxtLinesMapping<TOut> mapper)
         {
-            Mapping = mapping;
+            Mapper = mapper;
         }
 
-        public TextFileReader(ITxtLinesMapping<TOut> mapping, string columnSeparator)
-            : this(mapping)
+        public TextFileReader(ITxtLinesMapping<TOut> mapper, string columnSeparator)
+            : this(mapper)
         {
             ColumnSeparator = columnSeparator;
         }
 
-        public TextFileReader(ITxtLinesMapping<TOut> mapping, string columnSeparator, string lineSeparator) 
-            : this(mapping, columnSeparator)
+        public TextFileReader(ITxtLinesMapping<TOut> mapper, string columnSeparator, string lineSeparator) 
+            : this(mapper, columnSeparator)
         {
             LineSeparator = lineSeparator;
         }
@@ -51,7 +51,7 @@ namespace Data.Reader
 
         public TOut ReadDataModel(string data)
         {
-            return Mapping.Map(data.Split(LineSeparator,
+            return Mapper.Map(data.Split(LineSeparator,
                         StringSplitOptions.RemoveEmptyEntries)
                     .Select(d => d.Split(ColumnSeparator, StringSplitOptions.RemoveEmptyEntries)),
                 default(TOut));
