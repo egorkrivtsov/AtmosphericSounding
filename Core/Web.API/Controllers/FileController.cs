@@ -28,6 +28,7 @@ namespace Web.API.Controllers
             var list = new List<RawPacket>();
             foreach (IFormFile file in Request.Form.Files.Where(f=>f.Length>0).ToList())
             {
+                
                 var name = file.Name;
                 using (var reader = file.OpenReadStream())
                 {
